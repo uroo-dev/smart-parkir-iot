@@ -27,7 +27,7 @@ Proyek ini dirancang sebagai simulasi **Sistem Pintu Parkir & Kendali Akses Otom
 
 | Physical Hardware Prototype (Barrier Open / Vehicle Detected) |
 | :---: |
-| ![Smart Parking Demo](/smart-parking.jpg) |
+| ![Smart Parking Demo](smart-parking.jpeg) |
 | *Gambar 1.1: Eksekusi otomatis palang terangkat ($90^\circ$) dan pesan welcoming diaktifkan saat kendaraan terdeteksi.* |
 
 </div>
