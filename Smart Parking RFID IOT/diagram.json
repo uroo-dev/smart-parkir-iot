@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "author": "Smart Parking Project",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 200,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "board-mfrc522",
+      "id": "rfid1",
+      "top": 250,
+      "left": -320,
+      "attrs": {}
+    },
+    {
+      "type": "board-mfrc522",
+      "id": "rfid2",
+      "top": 250,
+      "left": 280,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "us1",
+      "top": -50,
+      "left": -280,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "us2",
+      "top": -50,
+      "left": 240,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": -220,
+      "left": -200,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo2",
+      "top": -220,
+      "left": 160,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -360,
+      "left": -220,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled2",
+      "top": -360,
+      "left": 180,
+      "attrs": { "i2cAddress": "0x3d" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 520,
+      "left": -240,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz2",
+      "top": 520,
+      "left": 240,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 550,
+      "left": -120,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 550,
+      "left": 120,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+
+    [ "oled1:GND", "esp:GND.1", "black", [ "v19.2", "h115.2", "v380" ] ],
+    [ "oled1:VCC", "esp:5V", "red", [ "v28.8", "h134.4", "v370" ] ],
+    [ "oled1:SCL", "esp:D22", "yellow", [ "v38.4", "h153.6", "v360" ] ],
+    [ "oled1:SDA", "esp:D21", "blue", [ "v48", "h172.8", "v350" ] ],
+
+    [ "oled2:GND", "esp:GND.1", "black", [ "v19.2", "h-220.8", "v380" ] ],
+    [ "oled2:VCC", "esp:5V", "red", [ "v28.8", "h-240", "v370" ] ],
+    [ "oled2:SCL", "esp:D22", "yellow", [ "v38.4", "h-259.2", "v360" ] ],
+    [ "oled2:SDA", "esp:D21", "blue", [ "v48", "h-278.4", "v350" ] ],
+
+    [ "servo1:GND", "esp:GND.1", "black", [ "h-57.6", "v320" ] ],
+    [ "servo1:V+", "esp:5V", "red", [ "h-76.8", "v310" ] ],
+    [ "servo1:PWM", "esp:D13", "orange", [ "h-96", "v300" ] ],
+
+    [ "servo2:GND", "esp:GND.1", "black", [ "h115.2", "v320" ] ],
+    [ "servo2:V+", "esp:5V", "red", [ "h134.4", "v310" ] ],
+    [ "servo2:PWM", "esp:D12", "orange", [ "h153.6", "v300" ] ],
+
+    [ "us1:GND", "esp:GND.1", "black", [ "v50", "h150", "v180" ] ],
+    [ "us1:VCC", "esp:5V", "red", [ "v60", "h160", "v170" ] ],
+    [ "us1:TRIG", "esp:D14", "purple", [ "v70", "h170", "v160" ] ],
+    [ "us1:ECHO", "esp:D27", "cyan", [ "v80", "h180", "v150" ] ],
+
+    [ "us2:GND", "esp:GND.1", "black", [ "v50", "h-200", "v180" ] ],
+    [ "us2:VCC", "esp:5V", "red", [ "v60", "h-210", "v170" ] ],
+    [ "us2:TRIG", "esp:D32", "purple", [ "v70", "h-220", "v160" ] ],
+    [ "us2:ECHO", "esp:D33", "cyan", [ "v80", "h-230", "v150" ] ],
+
+    [ "rfid1:VCC", "esp:3V3", "red", [ "h120", "v-30" ] ],
+    [ "rfid1:GND", "esp:GND.1", "black", [ "h130", "v-20" ] ],
+    [ "rfid1:RST", "esp:D4", "gray", [ "h140", "v-10" ] ],
+    [ "rfid1:MISO", "esp:D19", "violet", [ "h150", "v0" ] ],
+    [ "rfid1:MOSI", "esp:D23", "blue", [ "h160", "v10" ] ],
+    [ "rfid1:SCK", "esp:D18", "yellow", [ "h170", "v20" ] ],
+    [ "rfid1:SDA", "esp:D5", "orange", [ "h180", "v30" ] ],
+
+    [ "rfid2:VCC", "esp:3V3", "red", [ "h-140", "v-30" ] ],
+    [ "rfid2:GND", "esp:GND.1", "black", [ "h-150", "v-20" ] ],
+    [ "rfid2:RST", "esp:D4", "gray", [ "h-160", "v-10" ] ],
+    [ "rfid2:MISO", "esp:D19", "violet", [ "h-170", "v0" ] ],
+    [ "rfid2:MOSI", "esp:D23", "blue", [ "h-180", "v10" ] ],
+    [ "rfid2:SCK", "esp:D18", "yellow", [ "h-190", "v20" ] ],
+    [ "rfid2:SDA", "esp:D15", "orange", [ "h-200", "v30" ] ],
+
+    [ "esp:D26", "r1:1", "green", [ "v120", "h-180" ] ],
+    [ "r1:2", "bz1:1", "green", [ "h-40" ] ],
+    [ "bz1:2", "esp:GND.1", "black", [ "v-50", "h190", "v-280" ] ],
+
+    [ "esp:D25", "r2:1", "green", [ "v120", "h180" ] ],
+    [ "r2:2", "bz2:1", "green", [ "h40" ] ],
+    [ "bz2:2", "esp:GND.1", "black", [ "v-50", "h-200", "v-280" ] ]
+  ],
+  "dependencies": {}
+}
